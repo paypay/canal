@@ -22,7 +22,7 @@ public class DirectLogFetcher extends LogFetcher {
     protected static final Logger logger                          = LoggerFactory.getLogger(DirectLogFetcher.class);
 
     // Master heartbeat interval
-    public static final int       MASTER_HEARTBEAT_PERIOD_SECONDS = 15;
+    public static final int       MASTER_HEARTBEAT_PERIOD_SECONDS = Integer.parseInt(System.getProperty("MASTER_HEARTBEAT_PERIOD_SECONDS", "15"));
     // +10s 确保 timeout > heartbeat interval
     private static final int      READ_TIMEOUT_MILLISECONDS       = (MASTER_HEARTBEAT_PERIOD_SECONDS + 10) * 1000;
 
